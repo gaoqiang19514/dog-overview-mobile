@@ -1,16 +1,8 @@
-import echarts from 'echarts';
+import * as echarts from 'echarts';
 
-export const px2hd = (px) => {
-  if (window.px2hd) return window.px2hd(px);
+import { px2hd } from '@/shared/utils';
 
-  if (!px) return 0;
-
-  const ONE_REM =
-    parseInt(document.documentElement.style.fontSize || '100', 10) || 100;
-  const SCALE = ONE_REM / 100;
-
-  return Number((px * SCALE).toFixed(1));
-};
+const tooltipPadding = [px2hd(5), px2hd(15), px2hd(5), px2hd(15)];
 
 export function getBarPrimaryOption() {
   const axisLabelColor = '#878C96';
@@ -35,7 +27,7 @@ export function getBarPrimaryOption() {
     tooltip: {
       trigger: 'item',
       formatter: '{a} <br/>{b}: {c}',
-      padding: px2hd(10),
+      padding: tooltipPadding,
       textStyle: {
         fontSize: px2hd(24),
       },
@@ -155,8 +147,8 @@ export function getPieOption() {
 
     tooltip: {
       trigger: 'item',
-      formatter: '{a} <br/>{b}: {c} ({d}%)',
-      padding: px2hd(10),
+      formatter: '{b} <br/>{a}: {c} ({d}%)',
+      padding: tooltipPadding,
       textStyle: {
         fontSize: px2hd(24),
       },
@@ -178,13 +170,18 @@ export function getPieOption() {
     },
     series: [
       {
-        name: '访问来源',
+        name: '数量',
         type: 'pie',
-        center: ['68%', '50%'],
+        center: ['70%', '50%'],
         radius: ['52%', '67%'],
         avoidLabelOverlap: false,
         label: {
           show: false,
+        },
+        itemStyle: {
+          borderRadius: px2hd(10),
+          borderColor: '#fff',
+          borderWidth: px2hd(10),
         },
         labelLine: {
           show: false,
@@ -198,9 +195,10 @@ export function getPieOption() {
 export function getBarOption() {
   const axisLabelColor = '#878C96';
   const axisSplitLineColor = '#E8E8E8';
+
   return {
     grid: {
-      top: px2hd(80),
+      top: px2hd(60),
       right: px2hd(40),
       bottom: px2hd(40),
       left: px2hd(40),
@@ -209,7 +207,7 @@ export function getBarOption() {
     tooltip: {
       trigger: 'item',
       formatter: '{a} <br/>{b}: {c}',
-      padding: px2hd(10),
+      padding: tooltipPadding,
       textStyle: {
         fontSize: px2hd(24),
       },
