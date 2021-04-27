@@ -1,7 +1,7 @@
 import ReactECharts from 'echarts-for-react';
 
 import styles from './index.less';
-import { getPieOption, getBarOption } from './config';
+import { getBarPrimaryOption, getPieOption, getBarOption } from './config';
 
 function IndexPage() {
   return (
@@ -14,7 +14,7 @@ function IndexPage() {
       <div className={styles.boxSecondary}>
         <ReactECharts
           style={{ height: '100%', width: '100%' }}
-          option={getBarOption()}
+          option={getBarPrimaryOption()}
           opts={{ renderer: 'svg' }}
         />
       </div>
