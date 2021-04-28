@@ -71,10 +71,18 @@ export function getBarPrimaryOption() {
           align: 'left',
           padding: [0, 0, px2hd(20), px2hd(-5)],
           inside: true,
-          color: '#333',
+          color: (value, index) => {
+            let color = '#1BABFF';
+
+            if (index === 0) {
+              color = '#F87F00';
+            }
+
+            return color;
+          },
           fontSize: px2hd(30),
         },
-        data: data.map((item) => item.name),
+        data: data.map((item, index) => `0${index + 1} ${item.name}`),
       },
       {
         axisLine: {
@@ -97,14 +105,25 @@ export function getBarPrimaryOption() {
           align: 'right',
           padding: [0, 0, px2hd(20), px2hd(-5)],
           inside: true,
-          color: '#1BABFF',
+          color: (value, index) => {
+            let color = '#1BABFF';
+
+            if (index === 0) {
+              color = '#F87F00';
+            }
+
+            return color;
+          },
           fontSize: px2hd(30),
           fontWeight: 'bolder',
         },
-        data: data.map((item) => item.value),
+        data: data.map((item) => {
+          return {
+            value: item.value,
+          };
+        }),
       },
     ],
-
     series: [
       {
         name: '数量',
@@ -117,7 +136,20 @@ export function getBarPrimaryOption() {
         backgroundStyle: {
           borderColor: '#EAEFF7',
         },
-        data: data,
+        data: data.map((item, index) => {
+          let color = '#1BABFF';
+
+          if (index === 0) {
+            color = '#F87F00';
+          }
+
+          return {
+            value: item.value,
+            itemStyle: {
+              color,
+            },
+          };
+        }),
       },
     ],
   };
