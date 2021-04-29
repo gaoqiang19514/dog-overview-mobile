@@ -110,6 +110,7 @@ export function getBarPrimaryOption(data) {
           fontSize: px2hd(30),
           fontWeight: 'bolder',
         },
+        inverse: true,
         data: data.map((item) => {
           return {
             value: item.value,
