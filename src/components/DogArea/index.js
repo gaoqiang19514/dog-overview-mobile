@@ -3,6 +3,7 @@ import ReactECharts from 'echarts-for-react';
 import { get, size } from 'lodash';
 
 import { getBarOption } from '@/shared/config';
+import { cutKeyword, areaSort } from '@/shared/utils';
 import Api from '@/api';
 
 import styles from './style.less';
@@ -28,7 +29,7 @@ function DogArea() {
       const list = get(res, 'data.data.dataList');
 
       const nextList = list.map((item) => ({
-        name: item.name,
+        name: cutKeyword(item.name, ['区', '新区']),
         value: Number(item.count),
       }));
 
@@ -44,7 +45,7 @@ function DogArea() {
       <div className={styles.content}>
         <ReactECharts
           style={{ height: '100%', width: '100%' }}
-          option={getBarOption(list)}
+          option={getBarOption(areaSort(list))}
           opts={{ renderer: 'svg' }}
         />
         <div className={styles.icon}></div>

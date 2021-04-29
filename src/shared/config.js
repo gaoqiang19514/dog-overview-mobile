@@ -74,6 +74,7 @@ export function getBarPrimaryOption(data) {
           },
           fontSize: px2hd(30),
         },
+        inverse: true,
         data: data.map((item, index) => `0${index + 1} ${item.name}`),
       },
       {
@@ -239,6 +240,10 @@ export function getBarOption(data) {
       axisLabel: {
         color: axisLabelColor,
         fontSize: px2hd(22),
+        formatter: (value) => {
+          const arr = value.split('');
+          return arr.reduce((str, char) => `${str}${char}\n`, '');
+        },
       },
       data: data.map((item) => item.name),
     },

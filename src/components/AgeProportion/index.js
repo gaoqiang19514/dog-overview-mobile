@@ -7,8 +7,19 @@ import Api from '@/api';
 
 import styles from './style.less';
 
+const defaultState = [
+  { name: '10-20岁', value: 0 },
+  { name: '20-30岁', value: 0 },
+  { name: '30-40岁', value: 0 },
+  { name: '40-50岁', value: 0 },
+  { name: '50-60岁', value: 0 },
+  { name: '60-70岁', value: 0 },
+  { name: '大于70岁', value: 0 },
+  { name: '10-20岁', value: 0 },
+];
+
 function AgeProportion() {
-  const [state, setState] = useState([]);
+  const [state, setState] = useState(defaultState);
 
   useEffect(() => {
     Api.getAge().then((res) => {
