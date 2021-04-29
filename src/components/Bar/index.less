@@ -2,35 +2,15 @@
   position: relative;
 }
 
-.head {
-  display: flex;
-  justify-content: space-around;
-  padding-top: 53px;
-  text-align: center;
-
-  .title {
-    font-size: 26px;
-  }
-
-  .num {
-    font-size: 60px;
-    font-weight: bolder;
-    color: #1babff;
-  }
-  .content {
-  }
-}
-
 .bar {
-  position: relative;
   z-index: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 670px;
   height: 80px;
-  border-radius: 10px;
   margin: auto;
+  border-radius: 10px;
   background: #008ced;
 
   .barInner {
@@ -41,23 +21,7 @@
   }
 }
 
-.mask {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 630px;
-  height: 30px;
-  opacity: 0.6;
-  background-image: linear-gradient(
-    0deg,
-    rgba(238, 238, 238, 0) 0%,
-    #074d7e 100%
-  );
-}
-
-.boxPrimary {
+.content {
   position: relative;
   top: -40px;
   margin: auto;
@@ -68,6 +32,46 @@
   box-shadow: 0 10px 30px 0 rgba(182, 196, 220, 0.3);
   background: #fff;
 
+  .head {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 53px;
+    text-align: center;
+
+    .title {
+      font-size: 26px;
+    }
+
+    .num {
+      font-size: 60px;
+      font-weight: bolder;
+      color: #1babff;
+    }
+  }
+
+  .main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 30px;
+  }
+
+  .mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 630px;
+    height: 30px;
+    opacity: 0.6;
+    background-image: linear-gradient(
+      0deg,
+      rgba(238, 238, 238, 0) 0%,
+      #074d7e 100%
+    );
+  }
+
   .icon {
     position: absolute;
     bottom: -50px;
@@ -77,11 +81,4 @@
     background: url(../../assets/images/cone_icon.png);
     background-size: cover;
   }
-}
-
-.list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 30px;
 }

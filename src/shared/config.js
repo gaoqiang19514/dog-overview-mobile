@@ -4,17 +4,9 @@ import { px2hd } from '@/shared/utils';
 
 const tooltipPadding = [px2hd(5), px2hd(15), px2hd(5), px2hd(15)];
 
-export function getBarPrimaryOption() {
+export function getBarPrimaryOption(data) {
   const axisLabelColor = '#878C96';
   const axisSplitLineColor = '#E8E8E8';
-
-  const data = [
-    { value: 35509, name: '贵宾' },
-    { value: 10094, name: '金毛' },
-    { value: 8723, name: '比熊' },
-    { value: 8485, name: '博美' },
-    { value: 7963, name: '柯基' },
-  ];
 
   return {
     grid: {
@@ -155,17 +147,7 @@ export function getBarPrimaryOption() {
   };
 }
 
-export function getPieOption() {
-  const data = [
-    { value: 335, name: '10-19岁' },
-    { value: 310, name: '20-29岁' },
-    { value: 234, name: '30-39岁' },
-    { value: 135, name: '40-49岁' },
-    { value: 1548, name: '50-59岁' },
-    { value: 1548, name: '60-69岁' },
-    { value: 1548, name: '≥70岁' },
-  ];
-
+export function getPieOption(data) {
   return {
     color: [
       '#F8C642',
@@ -224,7 +206,7 @@ export function getPieOption() {
   };
 }
 
-export function getBarOption() {
+export function getBarOption(data) {
   const axisLabelColor = '#878C96';
   const axisSplitLineColor = '#E8E8E8';
 
@@ -258,18 +240,7 @@ export function getBarOption() {
         color: axisLabelColor,
         fontSize: px2hd(22),
       },
-      data: [
-        '宝安',
-        '龙岗',
-        '坪山',
-        '福田',
-        '南山',
-        '龙华',
-        '盐田',
-        '罗湖',
-        '大鹏',
-        '光明',
-      ],
+      data: data.map((item) => item.name),
     },
     yAxis: {
       axisLine: {
@@ -309,7 +280,7 @@ export function getBarOption() {
             },
           ]),
         },
-        data: [5, 20, 36, 10, 10, 20, 5, 20, 36, 10],
+        data: data.map((item) => item.value),
       },
     ],
   };

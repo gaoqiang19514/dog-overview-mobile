@@ -8,4 +8,10 @@ export default defineConfig({
   },
   routes: [{ path: '/', component: '@/pages/index' }],
   fastRefresh: {},
+  proxy: {
+    '/dog-business': {
+      target: 'https://smartum.sz.gov.cn/zhzf/zfdp',
+      changeOrigin: true,
+    },
+  },
 });
